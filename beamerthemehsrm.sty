@@ -44,11 +44,12 @@
 %---------------------------------------------------------------------
 % Itemize
 %---------------------------------------------------------------------
-\setbeamertemplate{itemize item}{\rightTextArrow}
-\setbeamertemplate{itemize subitem}{\rightTextArrow}
-\setbeamertemplate{itemize subsubitem}{\rightTextArrow}
+\setbeamertemplate{itemize item}{\small\textbullet}
+\setbeamertemplate{itemize subitem}{\scriptsize\textbullet}
+\setbeamertemplate{itemize subsubitem}{\scriptsize\textbullet}
 
-\setlength{\parskip}{0.5em}
+\setlength{\parskip}{0.2em}
+\setlength{\leftmarginii}{1em} % indentation 2ème niveau (défaut ~2em)
 
 %---------------------------------------------------------------------
 % Colors
@@ -105,6 +106,29 @@
 \setbeamercolor{note date}{parent=note title}
 % Page Number
 \setbeamercolor{page number in head/foot}{fg=hsrmWarmGreyDark}
+% Top slide
+%\setbeamercolor{section in head/foot}{fg=white, bg=hsrmWarmGreyDark}
+%\setbeamercolor{section in head/foot shaded}{fg=hsrmWarmGreyLight, bg=hsrmWarmGreyDark}
+
+%---------------------------------------------------------------------
+% Marges des frames
+%---------------------------------------------------------------------
+% Définit les marges et expose une longueur réutilisable dans les frames
+\newlength{\frameLeftMargin}
+\setlength{\frameLeftMargin}{3mm}
+\setbeamersize{text margin left=\frameLeftMargin, text margin right=3mm}
+
+% Commande pour coller le contenu au bord gauche de la frame
+\newcommand{\collerGauche}{\noindent\hspace*{-\frameLeftMargin}}
+
+% Commande pour slide avec une image centrée en haut
+% #1 = hauteur (défaut 0.82\textheight), #2 = fichier image
+\newcommand{\slideimage}[2][0.70\textheight]{%
+    \vspace{1pt}%
+    \begin{center}
+        \includegraphics[height=#1]{#2}%
+    \end{center}%
+}
 
 %---------------------------------------------------------------------
 % Fonts
@@ -145,18 +169,20 @@
 
 \renewcommand\UrlFont{\Medium}
 % Titlepage
-\setbeamerfont{title}{family=\Light,size=\fontsize{20}{20}}
+\setbeamerfont{title}{family=\Light,size=\fontsize{16}{18}}
 \setbeamerfont{subtitle}{family=\Light,size=\fontsize{12}{14}}
 \setbeamerfont{date}{size=\fontsize{8}{10}}
-\setbeamerfont{author}{size=\fontsize{12}{15}}
+\setbeamerfont{author}{size=\fontsize{8}{10}}
 \setbeamerfont{institute}{size=\fontsize{8}{10}}
 % Section
 \setbeamerfont{section title}{size=\LARGE}
 % Content
-\setbeamerfont{frametitle}{family=\Light,size=\large}
-\setbeamerfont{copyright text}{family=\Light,size=\tiny}
-\setbeamerfont{block title}{family=\Book,size=\large}
-\setbeamerfont{block title alerted}{family=\Book,size=\large}
+%\setbeamerfont{section in head/foot}{size=\Medium} % texte en haut du slide
+\setbeamerfont{frametitle}{family=\Light,size=\Medium} % titre slide principal
+\setbeamerfont{normal text}{size=\small}
+\setbeamerfont{copyright text}{family=\Light,size=\small}
+\setbeamerfont{block title}{family=\Book,size=\normalsize}
+\setbeamerfont{block title alerted}{family=\Book,size=\normalsize}
 \setbeamerfont{alerted text}{family=\Medium}
 % Captions
 \setbeamerfont{caption name}{family=\Book}
@@ -170,39 +196,47 @@
 \def\titlepage{\usebeamertemplate{title page}}
 \setbeamertemplate{title page}
 {
-	% Add background to title page
-	\AddToShipoutPictureFG*{\includegraphics[width=\paperwidth]{background.pdf}}
-	\begin{minipage}[b][\paperheight]{\textwidth}
-	\vspace*{5mm}
-	\includegraphics[height=14mm]{./logo}\par
-	\vspace*{5mm}
-	\ifx\insertsubtitle\@empty%
-	\else%
-		{\usebeamerfont{title}\usebeamercolor[fg]{title}\MakeUppercase{\inserttitle}\par}%
-	\fi%
-	\ifx\insertsubtitle\@empty%
-	\else%
-		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-		\vspace*{5mm}
-	\fi%
-	\ifx\insertdate\@empty%
-	\else%
-		{\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}%
-	\fi% 
-	
-	\vfill
-	
-	\ifx\insertauthor\@empty%
-	\else%
-		{\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}%
-	\fi%
-	\ifx\insertinstitut\@empty%
-	\else%
-		\vspace*{3mm}
-		{\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}%
-	\fi% 
-	\vspace*{5mm}
-	\end{minipage}
+    \begin{minipage}[b][\paperheight]{\textwidth}
+
+    % Logos en haut
+    \vspace*{5mm}
+    \begin{minipage}[c]{\textwidth}
+        \includegraphics[height=7mm]{img/logo_hepia}%
+        \hfill%
+        \includegraphics[height=7mm]{img/logo_eco21_sig}%
+    \end{minipage}\par
+
+    %\vfill
+
+    % Titre et sous-titre centrés
+    \begin{center}
+        \ifx\inserttitle\@empty\else%
+            {\usebeamerfont{title}\usebeamercolor[fg]{title}\MakeUppercase{\inserttitle}\par}%
+        \fi%
+        %\vspace*{1mm}
+        \ifx\insertsubtitle\@empty\else%
+            {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+        \fi%
+    \end{center}
+
+    %\vspace*{5mm}
+
+    % Image centrée
+    \begin{center}
+        \includegraphics[width=0.60\textwidth]{img/titre_pde}%
+    \end{center}
+
+    %\vfill
+
+    % Bas de page : auteur à gauche, date à droite
+    \begin{minipage}[c]{\textwidth}
+        {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}%
+        \hfill%
+        {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}%
+    \end{minipage}
+
+    \vspace*{5mm}
+    \end{minipage}
 }
 
 %---------------------------------------------------------------------
@@ -231,12 +265,17 @@
 \fi
 
 %---------------------------------------------------------------------
+% Marges du contenu des frames
+%---------------------------------------------------------------------
+\setbeamersize{text margin left=3mm, text margin right=3mm}
+
+%---------------------------------------------------------------------
 % Frametitle
 %---------------------------------------------------------------------
 \setbeamertemplate{frametitle}
 {
-\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=3ex,dp=1.5ex]{frametitle}
-	 \usebeamerfont{frametitle}\MakeUppercase{\insertframetitle}%
+\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.3cm,rightskip=0.3cm,ht=2.5ex,dp=1ex]{frametitle}
+     \usebeamerfont{frametitle}\MakeUppercase{\insertframetitle}%
 \end{beamercolorbox}
 }
 
@@ -246,7 +285,7 @@
 \usenavigationsymbolstemplate{}
 \setbeamertemplate{footline}
 {%
-\begin{beamercolorbox}[wd=\textwidth,ht=3ex,dp=1.5ex,leftskip=0.3cm,rightskip=0.3cm]{structure}%
+\begin{beamercolorbox}[wd=\textwidth,ht=2.5ex,dp=1ex,leftskip=0.3cm,rightskip=0.3cm]{structure}%
 \hfill\usebeamerfont{page number in head/foot}%
 \insertframenumber%
 \end{beamercolorbox}%

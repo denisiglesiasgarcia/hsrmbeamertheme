@@ -1,0 +1,115 @@
+%!TEX program = xelatex
+
+% Name           : hsrm-beamer-minimal.sty
+% Author         : Benjamin Weiss (benjamin.weiss@kreatiefton.de)
+% Version        : 0.2
+% Created on     : 08.05.2013
+% Last Edited on : 24.03.2014
+% Copyright      : Copyright (c) 2013 by Benjamin Weiss. All rights reserved.
+% License        : This file may be distributed and/or modified under the
+%                  GNU Public License.
+% Description    : HSRM beamer theme minimal example.
+
+\documentclass{beamer}
+
+\usepackage[french]{babel}
+\usepackage{datetime}
+
+\usetheme[noflama]{hsrm}
+
+\title{Rencontre AMOén}
+\subtitle{Les derniers résultats des projets AMOén}
+\author{Denis Iglesias}
+%\institute{Studienbereich Informations- und Elektrotechnik\\Hochschule {\Medium RheinMain}}
+\newdate{date}{04}{06}{2026}
+\date{\displaydate{date}}
+
+\begin{document}
+
+\maketitle
+
+\section*{Table des matières}
+\begin{frame}{Table des matières}
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section*{Statut des projets}
+
+\begin{frame}[t]{Statut des projets}
+    \vspace{2pt}
+    \collerGauche%
+    \begin{minipage}[t]{0.38\paperwidth}
+        \small
+        \begin{itemize}
+            \setlength{\itemsep}{0.4em}
+            \item 80 projets
+            \begin{itemize}
+                \footnotesize
+                \setlength{\itemsep}{0.3em}
+                \item En cours ou finalisés
+                \item 30 ancienne méthodologie
+                \item 50 nouvelle méthodologie
+                \item 4 projets sans bonus MI16
+            \end{itemize}
+            \item Terminés récemment
+            \begin{itemize}
+                \footnotesize
+                \setlength{\itemsep}{0.3em}
+                \item Adrien-Jeandin 4-6\_grange
+                \item Dinu-Lipatti\_SPG
+                \item Poste\_collex
+                \item Vieusseux 16-18\_SCHG
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}%
+    \begin{minipage}[t]{0.62\paperwidth}
+        \vspace{0pt}
+        \includegraphics[
+            width=\linewidth,
+            height=0.80\textheight,
+            keepaspectratio
+        ]{img/01_statut_projets_20260526-153552}
+    \end{minipage}
+\end{frame}
+
+%---------------------------------------------------------------------
+% performance
+%---------------------------------------------------------------------
+
+\section{Performance}
+
+\begin{frame}[t]{Performance des sites en exploitation}
+    \slideimage[0.67\textheight]{img/02_performance_sites_general_02_exploitation-20260528-113941}%
+	\vfill
+	{\tiny Données indisponibles pour "Vernes-Vaudagne 16-18/41-45\_CPEG" et "Gilbert-Trolliet 2-12\_CAPetRealstone"}
+\end{frame}
+
+
+
+\begin{frame}[t]{Performance des sites récemment terminés}
+    \slideimage[0.57\textheight]{img/02_performance_sites_general_01_termines_recent-20260528-113941}
+\end{frame}
+
+% hauteur différente pour la dernière
+\begin{frame}[t]{Performance des sites terminés}
+    \slideimage[0.60\textheight]{img/02_performance_sites_general_03_termines-20260528-113941}
+    \vfill
+    {\tiny "Michel-Chauvet 6-8" (projet pilote), "école Golette" et "Léchères 4\_Wincasa" (hors affectation logement collectif) ne sont pas inclus.}
+\end{frame}
+
+%---------------------------------------------------------------------
+% performance vs IDC
+%---------------------------------------------------------------------
+
+\section{Conclusion}
+\begin{frame}
+	3-1
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
