@@ -33,7 +33,7 @@
 	\tableofcontents[hideallsubsections]
 \end{frame}
 
-\section*{Statut des projets}
+\section{Statut des projets}
 
 \begin{frame}[t]{Statut des projets}
     \vspace{2pt}
@@ -68,7 +68,7 @@
             width=\linewidth,
             height=0.80\textheight,
             keepaspectratio
-        ]{img/01_statut_projets_20260526-153552}
+        ]{img/01_statut_projets}
     \end{minipage}
 \end{frame}
 
@@ -79,20 +79,18 @@
 \section{Performance}
 
 \begin{frame}[t]{Performance des sites en exploitation}
-    \slideimage[0.67\textheight]{img/02_performance_sites_general_02_exploitation-20260528-113941}%
+    \slideimage[0.69\textheight]{img/02_performance_sites_general_01_exploitation}%
 	\vfill
 	{\tiny Données indisponibles pour "Vernes-Vaudagne 16-18/41-45\_CPEG" et "Gilbert-Trolliet 2-12\_CAPetRealstone"}
 \end{frame}
 
-
-
 \begin{frame}[t]{Performance des sites récemment terminés}
-    \slideimage[0.57\textheight]{img/02_performance_sites_general_01_termines_recent-20260528-113941}
+    \slideimage[0.70\textheight]{img/02_performance_sites_general_02_termines_recent}
 \end{frame}
 
 % hauteur différente pour la dernière
 \begin{frame}[t]{Performance des sites terminés}
-    \slideimage[0.60\textheight]{img/02_performance_sites_general_03_termines-20260528-113941}
+    \slideimage[0.63\textheight]{img/02_performance_sites_general_03_termines}
     \vfill
     {\tiny "Michel-Chauvet 6-8" (projet pilote), "école Golette" et "Léchères 4\_Wincasa" (hors affectation logement collectif) ne sont pas inclus.}
 \end{frame}
@@ -101,9 +99,86 @@
 % performance vs IDC
 %---------------------------------------------------------------------
 
+\section{Comparatif IDC}
+
+\begin{frame}[t]{Performance vs IDC 1/2}
+    \slideimage[0.91\textheight]{img/02_performance_sites_general_04_termines_idc}
+\end{frame}
+
+\begin{frame}[t]{Performance vs IDC 2/2}
+    \slideimage[0.91\textheight]{img/02_performance_sites_general_05_termines_idc}
+\end{frame}
+
+\begin{frame}[t]{Cas particulier 1/2: Avusy 10-10A}
+    \vspace{2pt}
+
+    % --- Image (top) ---
+    {\centering\includegraphics[
+        width=\linewidth,
+        height=0.42\textheight,
+        keepaspectratio
+    ]{img/02_performance_sites_general_06_cas_particulier_01}\par}
+
+    \vfill
+
+    % --- Table (bottom) ---
+    {\footnotesize
+    \begin{tabular}{lll}
+        \hline
+        \textbf{Paramètre} & \textbf{IDC}  & \textbf{AMOén} \\
+        \hline
+        SRE & 1620 m² & 1600 m²\\
+        Consommation période (2025) & 187776 kWh (CAD) & 37104 kWh (élec PAC) \\
+        \hline
+    \end{tabular}}
+
+    \vspace{8pt}
+    {\small → Problème déclaration agent énergétique et quantité. Le bâtiment alimente aussi des villas à proximité, probablement que cette consommation n'a pas été retirée de l'immeuble (total 58969 kWh élec). Les villas n'ont pas été rénovées et consomment tout de même 37.1\% du total (21865 kWh).
+    }
+
+\end{frame}
+
+\begin{frame}[t]{Cas particulier 2/2: Prulay 37-47}
+    \vspace{2pt}
+
+    % --- Image (top) ---
+    {\centering\includegraphics[
+        width=\linewidth,
+        height=0.42\textheight,
+        keepaspectratio
+    ]{img/02_performance_sites_general_06_cas_particulier_02}\par}
+
+    \vfill
+
+    {\small → L'augmentation de l'IDC observée à la fin du mandat AMOén indique une dégradation progressive des réglages fins réalisés en cours de suivi.}
+
+\end{frame}
+
+%---------------------------------------------------------------------
+% Conclusion
+%---------------------------------------------------------------------
+
 \section{Conclusion}
-\begin{frame}
-	3-1
+\begin{frame}[t]{Conclusion}
+    \vspace{4pt}
+    \begin{itemize}
+        \setlength{\itemsep}{0.5em}
+        \item 80 sites dont 30 selon ancienne méthodologie :
+        \begin{itemize}
+            \setlength{\itemsep}{0.2em}
+            \item 3 en travaux
+            \item 9 en exploitation
+            \item 18 terminés
+        \end{itemize}
+        \item Performance atteinte dans 13 cas sur 14
+        \item Comparatif IDC :
+        \begin{itemize}
+            \setlength{\itemsep}{0.2em}
+            \item Tendance IDC à la baisse après rénovation
+            \item Calcul PAC COP: IDC (3.25) vs AMOén (2.5)
+            \item 2 cas particuliers analysés
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \end{document}

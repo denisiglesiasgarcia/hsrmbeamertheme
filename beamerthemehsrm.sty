@@ -125,9 +125,7 @@
 % #1 = hauteur (défaut 0.82\textheight), #2 = fichier image
 \newcommand{\slideimage}[2][0.70\textheight]{%
     \vspace{1pt}%
-    \begin{center}
-        \includegraphics[height=#1]{#2}%
-    \end{center}%
+    \makebox[\textwidth][c]{\includegraphics[height=#1]{#2}}%
 }
 
 %---------------------------------------------------------------------
@@ -223,7 +221,7 @@
 
     % Image centrée
     \begin{center}
-        \includegraphics[width=0.60\textwidth]{img/titre_pde}%
+        \includegraphics[width=0.55\textwidth]{img/titre_pde}%
     \end{center}
 
     %\vfill
